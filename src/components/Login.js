@@ -64,7 +64,7 @@ const Login = () => {
           className="w-full p-4 text-white  mb-2 rounded-md bg-black bg-opacity-20 border border-gray-200"
         />
         {errors?.password ? (
-          <p className="text-red-500">{errors?.password}</p>
+          <p className="text-red-500 mt-1">{errors?.password}</p>
         ) : null}
         <button
           className="p-2 my-4 bg-red-700 w-full text-white font-semibold rounded-md "
