@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
-import { Link } from "react-router-dom";
 
 const Login = () => {
+  const [signedIn, setSignedIn] = useState(true);
   return (
     <div>
       <Header />
       <img
         className="absolute concord-img vlv-creative"
         src="https://assets.nflxext.com/ffe/siteui/vlv3/ff5587c5-1052-47cf-974b-a97e3b4f0656/bcb20c8e-ba81-4a34-932c-1703f04d881e/NP-en-20240506-popsignuptwoweeks-perspective_alpha_website_small.jpg"
-        srcset="https://assets.nflxext.com/ffe/siteui/vlv3/ff5587c5-1052-47cf-974b-a97e3b4f0656/bcb20c8e-ba81-4a34-932c-1703f04d881e/NP-en-20240506-popsignuptwoweeks-perspective_alpha_website_small.jpg 1000w, https://assets.nflxext.com/ffe/siteui/vlv3/ff5587c5-1052-47cf-974b-a97e3b4f0656/bcb20c8e-ba81-4a34-932c-1703f04d881e/NP-en-20240506-popsignuptwoweeks-perspective_alpha_website_medium.jpg 1500w, https://assets.nflxext.com/ffe/siteui/vlv3/ff5587c5-1052-47cf-974b-a97e3b4f0656/bcb20c8e-ba81-4a34-932c-1703f04d881e/NP-en-20240506-popsignuptwoweeks-perspective_alpha_website_large.jpg 1800w"
+        srcSet="https://assets.nflxext.com/ffe/siteui/vlv3/ff5587c5-1052-47cf-974b-a97e3b4f0656/bcb20c8e-ba81-4a34-932c-1703f04d881e/NP-en-20240506-popsignuptwoweeks-perspective_alpha_website_small.jpg 1000w, https://assets.nflxext.com/ffe/siteui/vlv3/ff5587c5-1052-47cf-974b-a97e3b4f0656/bcb20c8e-ba81-4a34-932c-1703f04d881e/NP-en-20240506-popsignuptwoweeks-perspective_alpha_website_medium.jpg 1500w, https://assets.nflxext.com/ffe/siteui/vlv3/ff5587c5-1052-47cf-974b-a97e3b4f0656/bcb20c8e-ba81-4a34-932c-1703f04d881e/NP-en-20240506-popsignuptwoweeks-perspective_alpha_website_large.jpg 1800w"
         alt="logo"
       />
       <form className="w-4/12 absolute px-12 py-10 bg-black mx-auto left-0 right-0 rounded-lg bg-opacity-80 top-20">
-        <h1 className="text-white font-bold text-3xl mb-5">Sign In</h1>
+        <h1 className="text-white font-bold text-3xl mb-5">{signedIn===false?"Sign Up":"Sign In"}</h1>
+        {signedIn === false ? (
+          <input
+            type="text"
+            placeholder="Full Name"
+            className="w-full text-white p-4 rounded-md bg-black bg-opacity-40 border border-gray-200"
+          />
+        ) : null}
         <input
           type="text"
           placeholder="Email Address"
@@ -25,17 +32,23 @@ const Login = () => {
           className="w-full p-4 text-white  mb-2 rounded-md bg-black bg-opacity-20 border border-gray-200"
         />
         <button className="p-2 my-4 bg-red-700 w-full text-white font-semibold rounded-md ">
-          Sign In
+          {signedIn === false ? "Sign Up" : "Sign In"}
         </button>
         <h2 className="text-gray-400 mt-6">
-          New to Netflix ?{" "}
-          <Link to="/signUp" className="font-semibold text-white">
-            Sign up now
-          </Link>
+          {signedIn===false?"Already Registered? ":"New to Netflix? "}
+          <button
+            className="font-semibold text-white"
+            onClick={(e) => {
+              e.preventDefault();
+              setSignedIn(!signedIn);
+            }}
+          >
+            {signedIn===false?"Sign in now":"Sign up now"}
+          </button>
         </h2>
         <p className="text-gray-400 text-xs mt-4">
           This page is protected by Google reCAPTCHA to ensure you're not a bot.
-          <span className="text-blue-500 font-bold"> Learn more.</span> 
+          <span className="text-blue-500 font-bold"> Learn more.</span>
         </p>
       </form>
     </div>
