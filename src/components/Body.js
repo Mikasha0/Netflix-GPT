@@ -1,8 +1,7 @@
 import React from "react";
-import Login from "./Login";
-import Browse from "./Browse";
-import SignUp from "./SignUp";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Browse from "./Browse";
+import Login from "./Login";
 
 const Body = () => {
   const appRouter = createBrowserRouter([
@@ -14,10 +13,6 @@ const Body = () => {
       path: "/browse",
       element: <Browse />,
     },
-    {
-      path: "/signUp",
-      element: <SignUp />,
-    }
   ]);
   return (
     <div>
