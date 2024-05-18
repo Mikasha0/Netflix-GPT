@@ -1,7 +1,11 @@
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import React, { useRef, useState } from "react";
-import Header from "./Header";
 import { checkValidData } from "../utils/validate";
-
+import Header from "./Header";
+import { auth } from "../utils/firebase";
 const Login = () => {
   const [signedIn, setSignedIn] = useState(true);
 
@@ -9,15 +13,60 @@ const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
   const [errors, setErrors] = useState({});
+  const [authError, setAuthError] = useState(null);
 
   const handleButtonClick = () => {
     const message = checkValidData(
       name?.current?.value,
       email?.current?.value,
-      password?.current?.value
+      password?.current?.value,
+      signedIn
     );
     setErrors(message);
+    console.log(message);
+    if (message) return;
+    //signIn or signUp
+    if (!signedIn) {
+      createUserWithEmailAndPassword(
+        auth,
+        email?.current?.value,
+        password?.current?.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorMessage);
+          setAuthError(errorCode + "-" + errorMessage);
+          // ..
+        });
+    } else {
+      signInWithEmailAndPassword(
+        auth,
+        email?.current?.value,
+        password?.current?.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorMessage);
+          setAuthError(errorCode + "-" + errorMessage);
+        });
+    }
   };
+
+  console.log(authError);
 
   return (
     <div>
@@ -66,6 +115,7 @@ const Login = () => {
         {errors?.password ? (
           <p className="text-red-500 mt-1">{errors?.password}</p>
         ) : null}
+        {authError ? <p className="text-red-500 mt-1">{authError}</p> : null}
         <button
           className="p-2 my-4 bg-red-700 w-full text-white font-semibold rounded-md "
           onClick={handleButtonClick}
