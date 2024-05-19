@@ -3,13 +3,12 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import React, { useRef, useState } from "react";
+import { auth } from "../utils/firebase";
 import { checkValidData } from "../utils/validate";
 import Header from "./Header";
-import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+import { BACKGROUND_IMAGE } from "../utils/constants";
 const Login = () => {
   const [signedIn, setSignedIn] = useState(true);
-  const navigate = useNavigate();
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
@@ -36,7 +35,6 @@ const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user);
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -53,7 +51,6 @@ const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user);
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -69,7 +66,7 @@ const Login = () => {
       <Header />
       <img
         className="absolute concord-img vlv-creative"
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/ff5587c5-1052-47cf-974b-a97e3b4f0656/bcb20c8e-ba81-4a34-932c-1703f04d881e/NP-en-20240506-popsignuptwoweeks-perspective_alpha_website_small.jpg"
+        src={BACKGROUND_IMAGE}
         srcSet="https://assets.nflxext.com/ffe/siteui/vlv3/ff5587c5-1052-47cf-974b-a97e3b4f0656/bcb20c8e-ba81-4a34-932c-1703f04d881e/NP-en-20240506-popsignuptwoweeks-perspective_alpha_website_small.jpg 1000w, https://assets.nflxext.com/ffe/siteui/vlv3/ff5587c5-1052-47cf-974b-a97e3b4f0656/bcb20c8e-ba81-4a34-932c-1703f04d881e/NP-en-20240506-popsignuptwoweeks-perspective_alpha_website_medium.jpg 1500w, https://assets.nflxext.com/ffe/siteui/vlv3/ff5587c5-1052-47cf-974b-a97e3b4f0656/bcb20c8e-ba81-4a34-932c-1703f04d881e/NP-en-20240506-popsignuptwoweeks-perspective_alpha_website_large.jpg 1800w"
         alt="logo"
       />

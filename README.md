@@ -16,6 +16,8 @@
 - Implemented Sign Out
 - Update Profile
 - Fetch from TMDB Movies
+- BugFix: if user not logged in Redirect /browse to Login Page and vice versa
+- Add hardcoded values to the constants file
 
 
 # Features
