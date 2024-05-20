@@ -18,6 +18,9 @@
 - Fetch from TMDB Movies
 - BugFix: if user not logged in Redirect /browse to Login Page and vice versa
 - Add hardcoded values to the constants file
+- Register TMDB API & create and app & get access token 
+- Get Data from TMDB now playing movie list API
+
 
 
 # Features
