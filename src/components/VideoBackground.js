@@ -1,7 +1,5 @@
-import React, { useEffect } from "react";
-import { API_OPTIONS } from "../utils/constants";
-import { useDispatch, useSelector } from "react-redux";
-import { addTrailerVideo } from "../utils/movieSlice";
+import React from "react";
+import { useSelector } from "react-redux";
 import useMoviesVideoForTrailer from "../utils/useMoviesVideoForTrailer";
 
 const VideoBackground = ({ movieId }) => {
@@ -13,7 +11,7 @@ const VideoBackground = ({ movieId }) => {
     <div className="overflow-hidden">
       <iframe
       className="w-full aspect-video"
-      src={`https://www.youtube.com/embed/${trailerVideo?.key}?autoplay=1&mute=1`}
+      src={`https://www.youtube.com/embed/${trailerVideo?.key}?autoplay=1&mute=1&loop=1&playlist=${trailerVideo?.key}`}
       title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
