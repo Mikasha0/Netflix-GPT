@@ -53,11 +53,12 @@ const Header = () => {
           </div>
           {dropdownOpen && (
             <div
-              className="absolute right-0 mt-2 bg-white rounded-md shadow-lg z-20"
+              className="absolute right-0 mt-2 bg-black rounded-md shadow-lg z-20"
               style={{ width: "80px" }}
             >
               <button
-                className="block p-3 text-sm text-left  py-2 text-gray-700 hover:bg-gray-100 font-semibold hover:rounded-md"
+                className="block p-3 text-sm text-left  py-2 text-white bg-black rounded-md font-semibold hover:rounded-md "
+                style={{ width: "80px" }}
                 onClick={signOutUser}
               >
                 Sign Out
