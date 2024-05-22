@@ -17,7 +17,6 @@ const Header = () => {
       if (user) {
         const { uid, displayName, email } = user;
         dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
-        navigate("/browse");
       } else {
         dispatch(removeUser());
         navigate("/");
@@ -41,7 +40,7 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute w-full px-8 py-2 bg-gradient-to-b from-black z-10 flex items-center justify-between">
+    <div className="fixed w-full px-8 py-2 bg-gradient-to-b from-black z-10 flex items-center justify-between">
       <img className="w-44" src={LOGO} alt="app-name" />
       {userData ? (
         <div className="relative">
@@ -57,7 +56,7 @@ const Header = () => {
               style={{ width: "80px" }}
             >
               <button
-                className="block p-3 text-sm text-left  py-2 text-white bg-black rounded-md font-semibold hover:rounded-md "
+                className="block p-3 text-sm text-left py-2 text-white bg-black rounded-md font-semibold hover:rounded-md"
                 style={{ width: "80px" }}
                 onClick={signOutUser}
               >
