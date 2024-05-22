@@ -9,7 +9,6 @@ import { addUser, removeUser } from '../utils/userSlice';
 
 const ProfilePage = () => {
   const userName = useSelector((store)=> store?.user)
-  console.log(userName)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
@@ -27,14 +26,13 @@ const ProfilePage = () => {
     return () => unsubscribe();
   }, []);
   const profileEmail = useSelector((store) => store?.user)
-  console.log(profileEmail)
   return (
     <div className='w-full h-screen bg-black flex flex-col justify-center items-center'>
       <h1 className='text-3xl text-white text-center mb-6'>Who's watching?</h1>
       <div onClick={()=> navigate("/browse")}>
         <img src={avatar} className="w-24" alt="user-avatar" />
       </div>
-      <p className='text-xl text-white mt-2 '>{userName.displayName}</p>
+      <p className='text-xl text-white mt-2 '>{userName?.displayName}</p>
     </div>
   );
 }

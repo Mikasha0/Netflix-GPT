@@ -28,7 +28,11 @@
 - Embedded the Youtube Video & make it autoplay & mute
 - Tailwind classes to make MainContainer look awesome
 - Build Secondary Component
-
+- Build Profile Page 
+- Build Movie List
+- Build Movie Card
+- Custom hook for fetching Popular, Trending, Top Rated Movies
+- GPT Search Feature
 
 
 # Features

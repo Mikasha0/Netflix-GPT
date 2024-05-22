@@ -17,6 +17,7 @@ const Header = () => {
       if (user) {
         const { uid, displayName, email } = user;
         dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
+        navigate("/browse")
       } else {
         dispatch(removeUser());
         navigate("/");
