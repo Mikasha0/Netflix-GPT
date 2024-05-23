@@ -25,7 +25,6 @@ const ProfilePage = () => {
 
     return () => unsubscribe();
   }, []);
-  const profileEmail = useSelector((store) => store?.user)
   return (
     <div className='w-full h-screen bg-black flex flex-col justify-center items-center'>
       <h1 className='text-3xl text-white text-center mb-6'>Who's watching?</h1>

@@ -1,15 +1,14 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import {
   RouterProvider,
   createBrowserRouter
 } from "react-router-dom";
 import Browse from "./Browse";
+import GPTSearch from "./GPTSearch";
 import Login from "./Login";
 import ProfilePage from "./ProfilePage";
 
 const Body = () => {
-  const dispatch = useDispatch();
   const appRouter = createBrowserRouter([
     {
       path: "/",
@@ -22,6 +21,10 @@ const Body = () => {
     {
       path:"/profile",
       element:<ProfilePage/>
+    },
+    {
+      path:"/gptSearch",
+      element:<GPTSearch/>
     }
   ]);
   
