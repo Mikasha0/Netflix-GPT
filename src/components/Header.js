@@ -8,6 +8,7 @@ import { signOut } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
 import { LOGO } from "../utils/constants";
 import { IoSearchOutline } from "react-icons/io5";
+import { toggleGPTSearchView } from "../utils/gptSlice";
 
 const Header = () => {
   const userData = useSelector((store) => store.user);
@@ -23,6 +24,8 @@ const Header = () => {
       }
     }
     window.addEventListener('scroll', handleScroll);
+
+    // Cleanup the event listener on component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -57,6 +60,10 @@ const Header = () => {
     });
   };
 
+  const handleGPTSearchClick = () => {
+    dispatch(toggleGPTSearchView());
+  }
+
   return (
     <div
       className={`fixed w-full px-8 py-1 bg-gradient-to-b from-black z-10 flex items-center justify-between ${
@@ -70,7 +77,7 @@ const Header = () => {
             <div className="flex">
               <button
                 className="text-sm text-white mr-4 border border-white px-2 rounded-lg "
-                onClick={() => navigate("/gptSearch")}
+                onClick={handleGPTSearchClick}
               >
                 <div className="flex">
                   <IoSearchOutline className="mt-1 mr-1" size={15} />

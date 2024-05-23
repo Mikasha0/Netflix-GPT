@@ -9,3 +9,12 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   }
+
+  .search-input {
+    padding: 16px 
+  }
+  
+  .search-button {
+    right: 102px;
+    top: 6.5px
+  }

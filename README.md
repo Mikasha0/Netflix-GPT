@@ -32,7 +32,8 @@
 - Build Movie List
 - Build Movie Card
 - Custom hook for fetching Popular, Trending, Top Rated Movies
-- GPT Search Feature
+- GPT Search Page
+- GPT Search Bar
 
 
 # Features
