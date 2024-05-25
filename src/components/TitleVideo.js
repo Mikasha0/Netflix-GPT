@@ -1,5 +1,7 @@
 import React from "react";
 import { FaPlay } from "react-icons/fa";
+import { LuInfo } from "react-icons/lu";
+
 
 const TitleVideo = ({ title, overview }) => {
   return (
@@ -13,8 +15,12 @@ const TitleVideo = ({ title, overview }) => {
             Play
           </div>
         </button>
-        <button className="hidden md:hidden mx-3 bg-gray-500 text-white p-2 px-7 text-lg rounded-lg bg-opacity-50">
+        <button className="hidden lg:inline-block lg:py-[10px] lg:px-7 lg:text-lg md:hidden mx-3 bg-gray-500 text-white p-2 px-7 text-lg rounded-lg bg-opacity-50">
+          <div className="flex">
+          <LuInfo className="mt-1 md:mt-2 mr-2" size={13} />
           More Info
+
+          </div>
         </button>
       </div>
     </div>

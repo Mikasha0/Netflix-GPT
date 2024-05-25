@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { updateProfile } from "firebase/auth";
+import Footer from "./Footer";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -74,19 +75,19 @@ const Login = () => {
   };
 
   return (
+    <>
     <div>
       <Header />
       <img
-        className="absolute concord-img vlv-creative"
+        className=" hidden md:block lg:block relative concord-img vlv-creative md:h-[60vh] lg:h-full"
         src={BACKGROUND_IMAGE}
-        srcSet="https://assets.nflxext.com/ffe/siteui/vlv3/ff5587c5-1052-47cf-974b-a97e3b4f0656/bcb20c8e-ba81-4a34-932c-1703f04d881e/NP-en-20240506-popsignuptwoweeks-perspective_alpha_website_small.jpg 1000w, https://assets.nflxext.com/ffe/siteui/vlv3/ff5587c5-1052-47cf-974b-a97e3b4f0656/bcb20c8e-ba81-4a34-932c-1703f04d881e/NP-en-20240506-popsignuptwoweeks-perspective_alpha_website_medium.jpg 1500w, https://assets.nflxext.com/ffe/siteui/vlv3/ff5587c5-1052-47cf-974b-a97e3b4f0656/bcb20c8e-ba81-4a34-932c-1703f04d881e/NP-en-20240506-popsignuptwoweeks-perspective_alpha_website_large.jpg 1800w"
         alt="logo"
       />
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-4/12 absolute px-12 py-10 bg-black mx-auto left-0 right-0 rounded-lg bg-opacity-80 top-20"
+        className="w-full md:w-6/12 lg:w-4/12 lg:absolute md:absolute px-12 py-10 bg-black mx-auto left-0 right-0 md:rounded-lg lg:rounded-lg md:bg-opacity-80 lg:bg-opacity-80 md:top-[100px] lg:top-20"
       >
-        <h1 className="text-white font-bold text-3xl mb-5">
+        <h1 className="text-white font-bold text-3xl mb-5 pt-10 md:pt-0 lg:pt-0">
           {signedIn === false ? "Sign Up" : "Sign In"}
         </h1>
         {signedIn === false ? (
@@ -144,7 +145,10 @@ const Login = () => {
           <span className="text-blue-500 font-bold"> Learn more.</span>
         </p>
       </form>
+     
     </div>
+    <Footer/>
+    </>
   );
 };
 
