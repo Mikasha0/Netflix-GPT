@@ -1,5 +1,6 @@
 import React from "react";
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
+import { GITHUB, INSTAGRAM, NAMASTEDEV_LOGO, REACT_LOGO, TMDB_LOGO } from "../utils/constants";
 
 const Footer = () => {
   return (
@@ -13,7 +14,7 @@ const Footer = () => {
           </p>
           <img
             className="w-[200px] mt-3"
-            src="https://namastedevprod.s3.ap-south-1.amazonaws.com/banner+and+logos/name.png"
+            src={NAMASTEDEV_LOGO}
             alt="Akshay Saini"
           />
           <p className="text-white font-extralight mt-5 w-[250px]">
@@ -21,7 +22,7 @@ const Footer = () => {
           </p>
           <img
             className="w-[100px] mt-3"
-            src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
+            src={TMDB_LOGO}
             alt="TMDB Logo"
           />
         </div>
@@ -33,7 +34,7 @@ const Footer = () => {
           </p>
           <img
             className="w-[120px] mt-3"
-            src="https://react.dev/images/uwu.png"
+            src={REACT_LOGO}
             alt="React Logo"
           />
         </div>
@@ -52,7 +53,7 @@ const Footer = () => {
           </h1>
           <div className="flex space-x-6 mt-5">
             <a
-              href="https://github.com/your-username"
+              href={GITHUB}
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-gray-400"
@@ -68,7 +69,7 @@ const Footer = () => {
               <FaLinkedin size={27} />
             </a>
             <a
-              href="https://instagram.com/your-username"
+              href={INSTAGRAM}
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-gray-400"
