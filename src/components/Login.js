@@ -30,7 +30,6 @@ const Login = () => {
       signedIn
     );
     setErrors(message);
-    console.log(message);
     if (message) return;
     //signIn or signUp
     if (!signedIn) {
@@ -47,7 +46,6 @@ const Login = () => {
             const {uid, email, displayName}  = auth.currentUser;
             dispatch(addUser({uid:uid, email:email, displayName:displayName}))
             navigate("/profile")
-            console.log(user);
           })
          
         })
@@ -66,12 +64,10 @@ const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           navigate("/profile")
-          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorMessage);
           setAuthError(errorCode + "-" + errorMessage);
         });
     }

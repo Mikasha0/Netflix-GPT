@@ -1,11 +1,14 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import { addPopularTvSeries } from "../utils/movieSlice";
 const usePopularTvSeries = () => {
+
   const dispatch = useDispatch();
+  const popularTvSeries = useSelector((store) => store?.movies?.popularTvSeries);
+
   useEffect(() => {
-    getPopularTvSeries();
+    !popularTvSeries && getPopularTvSeries();
   }, []);
 
   const getPopularTvSeries = async () => {

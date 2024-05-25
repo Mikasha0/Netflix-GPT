@@ -66,7 +66,7 @@ const Header = () => {
 
   return (
     <div
-      className={`fixed w-full px-8 py-1 bg-gradient-to-b from-black z-10 flex items-center justify-between ${
+      className={`fixed w-full px-8 py-1 bg-gradient-to-b from-black z-20 flex items-center justify-between ${
         onScroll === true ? "bg-black" : ""
       }`}
     >
@@ -95,7 +95,7 @@ const Header = () => {
                 style={{ width: "80px" }}
               >
                 <button
-                  className="block p-3 text-sm text-left py-2 text-white bg-black rounded-md font-semibold hover:rounded-md"
+                  className="block p-3 text-sm text-left py-2 text-white bg-black rounded-md font-extralight hover:rounded-md"
                   style={{ width: "80px" }}
                   onClick={signOutUser}
                 >

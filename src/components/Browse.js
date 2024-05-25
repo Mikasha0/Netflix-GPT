@@ -1,15 +1,15 @@
 import React from "react";
 import Header from "./Header";
-import useNowPlayingMovies from "../utils/useNowPlayingMovies";
+import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
-import usePopularMovies from "../utils/usePopularMovies";
-import useUpcomingMovies from "../utils/useUpcomingMovies";
-import useTopRatedMovies from "../utils/useTopRatedMovies";
+import usePopularMovies from "../hooks/usePopularMovies";
+import useUpcomingMovies from "../hooks/useUpcomingMovies";
+import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import GPTSearch from "./GPTSearch";
 import { useSelector } from "react-redux";
 import Footer from "./Footer";
-import usePopularTvSeries from "../utils/usePopularTvSeries";
+import usePopularTvSeries from "../hooks/usePopularTvSeries";
 
 const Browse = () => {
   const toggleGptSearch = useSelector((store) => store?.GPT?.showGPTSearch);
