@@ -6,6 +6,7 @@ const usePopularTvSeries = () => {
 
   const dispatch = useDispatch();
   const popularTvSeries = useSelector((store) => store?.movies?.popularTvSeries);
+  console.log(popularTvSeries)
 
   useEffect(() => {
     !popularTvSeries && getPopularTvSeries();

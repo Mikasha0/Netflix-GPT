@@ -28,13 +28,13 @@ const GPTSearch = () => {
           src="https://assets.nflxext.com/ffe/siteui/vlv3/a99688ca-33c3-4099-9baa-07a2e2acb398/e09be4a6-58f5-4b58-855c-b6678e6f44bd/NP-en-20240520-popsignuptwoweeks-perspective_alpha_website_small.jpg"
           alt="logo"
         />
-        <div className="flex relative justify-center pt-[100px] px-10">
+        <div className="flex relative justify-center pt-[100px] px-10 md:pt-[200px] lg:pt-[100px]">
           <h1 className="text-4xl font-extrabold text-white text-center ">
             Search movies, TV shows, and more
           </h1>
         </div>
 
-        <div className="flex relative pt-[20px]  justify-center">
+        <div className="flex relative pt-[20px] justify-center md:ml-10">
           <form className="w-10/12 flex ml-10" onSubmit={(e) => e.preventDefault()}>
             <input
               className="search-input text-white bg-black bg-opacity-80 flex-1 rounded-l-lg rounded-r-lg border border-gray-300 focus:outline-none"
