@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
-import avatar from "../utils/image/netflix-blue-avatar.jpg";
-import { useDispatch, useSelector } from "react-redux";
-import { addUser, removeUser } from "../utils/userSlice";
-import { useNavigate } from "react-router-dom";
-import { auth } from "../utils/firebase";
-import { signOut } from "firebase/auth";
-import { onAuthStateChanged } from "firebase/auth";
-import { LOGO } from "../utils/constants";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import React, { useEffect, useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { LOGO } from "../utils/constants";
+import { auth } from "../utils/firebase";
 import { toggleGPTSearchView } from "../utils/gptSlice";
+import avatar from "../utils/image/netflix-blue-avatar.jpg";
+import { addUser, removeUser } from "../utils/userSlice";
 
 const Header = () => {
   const userData = useSelector((store) => store.user);
@@ -16,20 +15,19 @@ const Header = () => {
   const navigate = useNavigate();
   const [onScroll, setOnScroll] = useState(false);
   useEffect(() => {
-    const handleScroll =()=>{
+    const handleScroll = () => {
       if (window.scrollY > 0) {
         setOnScroll(true);
       } else {
         setOnScroll(false);
       }
-    }
-    window.addEventListener('scroll', handleScroll);
+    };
+    window.addEventListener("scroll", handleScroll);
 
     // Cleanup the event listener on component unmount
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
-   
   }, []);
 
   useEffect(() => {
@@ -62,7 +60,7 @@ const Header = () => {
 
   const handleGPTSearchClick = () => {
     dispatch(toggleGPTSearchView());
-  }
+  };
 
   return (
     <div
