@@ -108,7 +108,12 @@ const Login = () => {
           className="w-full md:w-6/12 lg:w-4/12 lg:absolute md:absolute px-12 py-10 bg-black mx-auto left-0 right-0 md:rounded-lg lg:rounded-lg md:bg-opacity-80 lg:bg-opacity-80 md:top-[100px] lg:top-20"
         >
           <h1 className="text-white font-bold text-3xl mb-5 pt-10 md:pt-0 lg:pt-0">
-            {signedIn === false ? "Sign Up" : "Sign In"}
+            {forgot ===false ? (
+              "Forgot Password ?"
+            ) : (
+              <>{signedIn === false ? "Sign Up" : "Sign In"}</>
+            )}
+            
           </h1>
           {signedIn === false ? (
             <>
@@ -172,17 +177,18 @@ const Login = () => {
               >
                 Reset
               </button>
-             { authError ? (
-                <p className="text-red-500 mt-1">{authError}</p>):null}
+              {authError ? (
+                <p className="text-red-500 mt-1">{authError}</p>
+              ) : null}
             </>
           )}
-          <p
+          {signedIn ===true?<p
             className="text-white text-sm font-extralight cursor-pointer"
             onClick={() => setForgot(!forgot)}
           >
             {forgot ? "Forgot Password ?" : "◄ back"}
-          </p>
-          <h2 className="text-gray-400 mt-6">
+          </p>: null}
+          {forgot &&     <h2 className="text-gray-400 mt-6">
             {signedIn === false ? "Already Registered? " : "New to Netflix? "}
             <button
               className="font-semibold text-white"
@@ -193,7 +199,8 @@ const Login = () => {
             >
               {signedIn === false ? "Sign in now" : "Sign up now"}
             </button>
-          </h2>
+          </h2>} 
+      
           <p className="text-gray-400 text-xs mt-4">
             This page is protected by Google reCAPTCHA to ensure you're not a
             bot.
